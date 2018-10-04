@@ -1,4 +1,3 @@
-const url = require('url')
 const parse = require('urlencoded-body-parser')
 
 module.exports = async request => {
