@@ -9,7 +9,8 @@
     "dev": "micro-dev"
   },
   "dependencies": {
-    "micro": "9.3.3"
+    "micro": "9.3.3",
+    "urlencoded-body-parser": "2.0.1"
   },
   "devDependencies": {
     "micro-dev": "3.0.0"

@@ -1,6 +1,7 @@
 const url = require('url')
+const parse = require('urlencoded-body-parser')
 
 module.exports = async request => {
-  const query = url.parse(request, true).query
-  return `Query ${query} - ${request}`
+  const data = await parse(request);
+  return "Test " + data.text
 }
