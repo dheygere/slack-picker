@@ -6,7 +6,7 @@
   "scripts": {
     "start": "micro",
     "heroku": "micro -l tcp://0.0.0.0:$PORT",
-    "dev": "micro-dev",
+    "dev": "micro-dev"
   },
   "dependencies": {
     "micro": "9.3.3"
