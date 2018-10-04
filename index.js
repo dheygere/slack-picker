@@ -1,11 +1,9 @@
 const url = require('url')
+const {json} = require('micro');
 
 module.exports = async request => {
-  const query = url.parse(request.url, true).query
+  const data = await json(request);
+//  console.log(data.text)
 
-  if (!query.text) {
-    return 'giff me, argument!'
-  }
-
-  return 'Youpi ' + query.text
+  return 'Youpi ' + data.text
 }
