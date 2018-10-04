@@ -1,0 +1,16 @@
+{
+  "name": "slack-picker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "micro",
+    "dev": "micro-dev"
+  },
+  "dependencies": {
+    "micro": "9.3.3"
+  },
+  "devDependencies": {
+    "micro-dev": "3.0.0"
+  }
+}
