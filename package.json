@@ -4,15 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "micro",
-    "heroku": "micro -l tcp://0.0.0.0:$PORT",
-    "dev": "micro-dev"
+    "start": "nodemon index.js",
+    "heroku": "node index.js",
+    "ngrok": "C:/dev/ngrok.exe http 3000"
   },
   "dependencies": {
-    "micro": "9.3.3",
-    "urlencoded-body-parser": "2.0.1"
+    "@slack/interactive-messages": "1.0.2",
+    "body-parser": "1.18.3",
+    "express": "4.16.3"
   },
   "devDependencies": {
-    "micro-dev": "3.0.0"
+    "nodemon": "1.18.4"
   }
 }
