@@ -5,18 +5,18 @@ function getRandomInt(max) {
 const pickRandomDev = (payload, respond) => {
   const message = payload.original_message;
 
-  let dispo = message.attachments[0].text.substr('Dispo: '.length).split(',').map(s => s.trim()).filter(s => s);
-  let indispo = message.attachments[1].text.substr('Indispo: '.length).split(',').map(s => s.trim()).filter(s => s);
+  let available = message.attachments[0].text.substr('Available: '.length).split(',').map(s => s.trim()).filter(s => s);
+  let unavailable = message.attachments[1].text.substr('Unavailable: '.length).split(',').map(s => s.trim()).filter(s => s);
 
-  const randomIndex = getRandomInt(dispo.length);
-  const randomName = dispo[randomIndex];
+  const randomIndex = getRandomInt(available.length);
+  const randomName = available[randomIndex];
 
-  dispo.splice(randomIndex, 1);
-  indispo.push(randomName);
+  available.splice(randomIndex, 1);
+  unavailable.push(randomName);
 
-  if (dispo.length === 0) {
-    dispo = indispo.slice(0);
-    indispo = [];
+  if (available.length === 0) {
+    available = unavailable.slice(0);
+    unavailable = [];
   }
 
   const reply = {
@@ -24,7 +24,7 @@ const pickRandomDev = (payload, respond) => {
     "text": "Randomly pick a dev to perform a review",
     "attachments": [
       {
-        "text": "Dispo: " + dispo.join(', ') ,
+        "text": "Available: " + available.join(', ') ,
         "callback_id": "pick-a-dev",
         "color": "#3AA3E3",
         "attachment_type": "default",
@@ -38,7 +38,7 @@ const pickRandomDev = (payload, respond) => {
         ]
       },
       {
-        "text": "Indispo: " + indispo.join(', '),
+        "text": "Unavailable: " + unavailable.join(', '),
         "color": "#33E33A",
         "attachment_type": "default",
         "actions": []
