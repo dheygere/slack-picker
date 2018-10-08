@@ -18,13 +18,13 @@ const answerToCommands = (req, res) => {
         ]
       },
       {
-        "text": "Indispo: ",
+        "text": "Unavailable: ",
         "color": "#33E33A",
         "attachment_type": "default",
         "actions": []
       },
       {
-        "text": "Intouchables: ",
+        "text": "Untouchable: ",
         "color": "#E3333A",
         "attachment_type": "default",
         "actions": []
