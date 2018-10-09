@@ -12,5 +12,6 @@ Create a new command on slack: https://api.slack.com/apps/AD69EDESU/slash-comman
 - users should not be able to pick themselves
 - display a notification when a user picks someone
 - it should be possible to move users from a list another
+- we should be able to divide the users by group (for the 2 applications we use)
 
-*Ccl FTW* => Naab
+*Ccl FTW*
