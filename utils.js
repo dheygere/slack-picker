@@ -13,18 +13,22 @@ const proxyUrl = process.env.HTTPS_PROXY || '';
 const webClientOptions = proxyUrl ? {agent: new HttpsProxyAgent(proxyUrl)} : {};
 const web = new WebClient(token, webClientOptions);
 
-// Get full user list
+// Get the full user list
 exports.getAllUsers = () => web.users.list();
 
-exports.createMessage = (available, unavailable) => {
-  return {
+exports.postMessage = (channel, text, attachments) => {
+  return web.chat.postMessage({channel: channel, text: text, attachments: attachments});
+};
+
+exports.createPickerMessage = (available, unavailable, message) => {
+  const slackMessage = {
     response_type: 'in_channel',
-    text: 'Randomly pick a dev to perform a review',
+    text: message || 'Randomly pick a dev to perform a review',
     attachments: [
       {
         text: 'Available: ' + available.join(', '),
         callback_id: 'pick-a-dev',
-        color: '#3AA3E3',
+        //color: '#3AA3E3',
         attachment_type: 'default',
         actions: [
           {
@@ -35,9 +39,11 @@ exports.createMessage = (available, unavailable) => {
           }]
       }, {
         text: 'Unavailable: ' + unavailable.join(', '),
-        color: '#33E33A',
+        //color: '#2b608e',
         attachment_type: 'default',
         actions: []
       }]
   };
+  return slackMessage;
 };
+
