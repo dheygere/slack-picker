@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
+    "debug": "node %NODE_DEBUG_OPTION% index.js",
     "heroku": "node index.js",
     "ngrok": "C:/dev/ngrok.exe http 3000"
   },
   "dependencies": {
+    "@slack/client": "4.4.0",
     "@slack/interactive-messages": "1.0.2",
     "body-parser": "1.18.3",
-    "express": "4.16.3"
+    "express": "4.16.3",
+    "https-proxy-agent": "^2.2.1"
   },
   "devDependencies": {
     "nodemon": "1.18.4"
